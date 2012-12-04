@@ -1,0 +1,8 @@
+<h1><%= @user.name %></h1>
+<div class="container">
+    <p>You own <%= @user.cars.count %> cars.</p>
+    <p>Your cars cost <%= number_to_currency(@user.cars.sum(:price)) %> combined dollars when you bought them.</p>
+    <p>You are in your <%= @user.cars.first.months_owned.ordinalize %> month of ownership</p>
+    <p>You've spent <%= number_to_currency(@user.maintenances.sum(:cost)) %> dollars maintaining your car since <%= @user.cars.first.purchased_on  %></p>
+    <p>Thats an average of <%= number_to_currency(@user.cars.first.monthly_cost) %> per month.</p>
+</div>
