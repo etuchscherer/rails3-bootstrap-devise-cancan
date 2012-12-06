@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Shop:</b>
+  <%= @maintenance.shop_id %>
+</p>
+
+<p>
+  <b>Work:</b>
+  <%= @maintenance.work_id %>
+</p>
+
+<p>
+  <b>Cost:</b>
+  <%= @maintenance.cost %>
+</p>
+
+<p>
+  <b>Car:</b>
+  <%= @maintenance.car_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_maintenance_path(@maintenance) %> |
+<%= link_to 'Back', maintenances_path %>

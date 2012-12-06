@@ -1,4 +1,8 @@
 Rails3BootstrapDeviseCancan::Application.routes.draw do
+  get "shop/index"
+
+  get "shop/show"
+
   get "profiles/index"
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
@@ -16,4 +20,10 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
   resources :cars do 
     resources :maintenances
   end
+
+  resources :shops do
+    resources :maintenances
+  end
+
+  resources :shops
 end

@@ -1,0 +1,42 @@
+<%= simple_form_for(@maintenance) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs form-horizontal">
+    <div class="control-group">
+        <label class="control-label" for='shop_id'>Shop</label>
+        <div class="controls">
+            <%= f.select(:shop_id, Shop.all.map { |s| [ s.name, s.id ]}) %>
+            <em><%= link_to 'shop not listed?', '/shop' %></em>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for='work_id'>Worked On</label>
+        <div class="controls">
+            <%= f.select(:work_id, Work.all.map { |w| [ w.component, w.id ]}) %>
+            <em><%= link_to 'something else?', '/shop' %></em>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for='car'>On this Car</label>
+        <div class="controls">
+            <%= f.select(:car_id, @user.cars.all.map { |c| [ c.name, c.id ]}) %>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for='cost'>Cost</label>
+        <div class="controls">
+            <%= f.text_field :cost %>
+        </div>
+    </div>    
+    </div>
+
+    <div class="control-group">
+        <div class="controls">
+            <div class="pull-right">
+            <%= f.button :submit, :class => 'btn btn-mini btn-primary' %>
+            <%= link_to 'back to cars', user_cars_path(@user), :class => 'btn btn-mini' %>
+            <%= link_to 'back to profile', user_path(@user), :class => 'btn btn-mini' %>
+            </div>
+        </div>
+    </div>
+<% end %>
