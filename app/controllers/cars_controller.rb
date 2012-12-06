@@ -1,8 +1,9 @@
 class CarsController < ApplicationController
+  before_filter :load_user
   # GET /cars
   # GET /cars.json
   def index
-    @cars = Car.all
+    @cars = @user.cars.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -79,5 +80,11 @@ class CarsController < ApplicationController
       format.html { redirect_to cars_url }
       format.json { head :no_content }
     end
+  end
+
+private
+
+  def load_user
+    @user = User.find(params[:user_id])
   end
 end

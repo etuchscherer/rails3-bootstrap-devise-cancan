@@ -7,7 +7,7 @@ class Car < ActiveRecord::Base
     ((Date.today - self.purchased_on).to_f / 30.44).ceil
   end
 
-  def monthly_cost
-    ((self.price + self.maintenances.sum(:cost)) / self.months_owned).ceil
+  def monthly_maintenance_cost
+    (self.maintenances.sum(:cost) / self.months_owned).ceil
   end
 end

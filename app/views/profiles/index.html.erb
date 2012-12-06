@@ -3,7 +3,7 @@
     <p>You own <%= @user.cars.count %> cars.</p>
     <% if @user.cars.count >= 1  %>
     <p><%= link_to 'Add another car', '/cars/new' %></p>
-    <p><%= link_to 'View Garage', '/cars' %></p>
+    <p><%= link_to 'View Garage', '/users/1/cars' %></p>
 
     <%= render 'users/controls' %>
     <% else %>

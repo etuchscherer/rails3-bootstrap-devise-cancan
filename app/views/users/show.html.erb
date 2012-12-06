@@ -1,3 +1,5 @@
-<h3>User</h3>
-<p>User: <%= @user.name %></p>
-<p>Email: <%= @user.email if @user.email %></p>
+<h1><%= @user.name %><small><%= link_to 'edit', edit_user_path(@user) %></small></h1>
+<ul class='unstyled'>
+	<li><%= link_to 'Your Garage',  user_cars_path(@user) %></li>
+	<li><%= link_to 'Your Recpiets',  user_cars_path(@user) %></li>
+</ul>

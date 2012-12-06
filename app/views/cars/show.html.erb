@@ -1,5 +1,31 @@
 <p id="notice"><%= notice %></p>
-
-
-<%= link_to 'Edit', edit_car_path(@car) %> |
-<%= link_to 'Back', cars_path %>
+<h1 class="page-title"><%= @user.name %>'s <%= @car.name %><small> <%= link_to 'edit', edit_user_car_path(@user, @car) %></small></h1>
+<div class="row">
+<div class='span3'>
+	<%= render 'sidebar' %>
+</div>
+<div class="span3 well clearwell">
+	<h3>Car</h3>
+	<hr>
+	<dl class="dl">
+		<dt>Year</dt>
+		<dd><%= @car.year %></dd>
+		<dt>Cost</dt>
+		<dd><%= number_to_currency(@car.price) %></dd>
+		<dt>Owned for</dt>
+		<dd><%= time_ago_in_words(@car.purchased_on) %></dd>
+	</dl>
+</div>
+<div class="span3 well clearwell">
+	<h3>Maintenance</h3>
+	<hr>
+	<dl class="dl">
+		<dt>Total Maintenance Cost</dt>
+		<dd><%= number_to_currency(@car.maintenances.sum(:cost)) %></dd>
+		<dt>Total maintenance count</dt>
+		<dd><%= @car.maintenances.count %></dd>
+		<dt>Cost per month</dt>
+		<dd><%= number_to_currency(@car.monthly_maintenance_cost) %></dd>
+	</dl>
+</div>
+</div>

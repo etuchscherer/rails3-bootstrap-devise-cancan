@@ -4,11 +4,16 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   authenticated :user do
-    root :to => 'home#index'
+    root :to => 'users#show'
   end
   root :to => "home#index"
   devise_for :users
-  resources :users
-  resources :cars
-  resources :maintenances
+
+  resources :users do
+    resources :cars
+  end
+
+  resources :cars do 
+    resources :maintenances
+  end
 end
